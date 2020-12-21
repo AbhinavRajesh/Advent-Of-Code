@@ -90,8 +90,8 @@ def main():
 
     for problem in problems:
         ans1 += problem1(problem)[0]
-    print(ans1)
+    print(f'Answer to Problem1: {ans1}')
     for problem in problems:
         ans2 += problem2(problem)[0]
-    print(ans2)
+    print(f'Answer to Problem2: {ans2}')
 main()
