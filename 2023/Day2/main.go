@@ -28,26 +28,38 @@ func part1() {
 	
     for scanner.Scan() {
         text := scanner.Text()
-
+		
 		g := strings.Split(text, ":")
+		
+		// Game 1
 		gameId, err1 := strconv.Atoi(strings.Split(g[0], " ")[1])
-
+		// 20 green, 3 red, 2 blue
+		// 9 red, 16 blue, 18 green
+		// 6 blue, 19 red, 10 green
+		// 12 red, 19 green, 11 blue
 		games := strings.Split(g[1], ";")
 
 		flag := false
 
+		// 20 green, 3 red, 2 blue
 		for _, game := range games {
+			// 20 green
+			// 3 red
+			// 2 blue
 			balls := strings.Split(game, ",")
+			
+			// 20 green
 			for _, ball := range balls {
 				sball := strings.Split(ball, " ")
 
-
+				// 20
 				numberOfBalls, ballErr :=  strconv.Atoi(sball[1])
 
 				if ballErr != nil {
 					fmt.Println(ballErr)
 				}
 				
+				// green
 				if limits[sball[2]] < numberOfBalls {
 					flag = true
 					break

@@ -10,16 +10,6 @@ import (
 	"strings"
 )
 
-func getFirstAndLastByRegexp(str string, regex string) [2]string {
-	r := regexp.MustCompile(regex)
-	matches := r.FindAllStringSubmatch(str, -1)
-
-	fmt.Println(matches)
-	// firstAndLast := [2]string{matches[0], matches[len(matches)-1]}
-
-	return [2]string{"1", "1"}
-}
-
 func getFirstAndLastFromList(str string, elements []string) []string {
 	strLen := len(str)
 	
@@ -91,10 +81,12 @@ func main() {
 	sum1 := 0
 	sum2 := 0
 
+	elements1 := []string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
+	elements2 := append(keys, elements1...)
+	
     for scanner.Scan() {
         text := scanner.Text()
 
-		elements1 := []string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
 		part1Strings := getFirstAndLastFromList(text, elements1)
 
 		number1, err1 := strconv.Atoi(part1Strings[0] + part1Strings[1])
@@ -107,7 +99,7 @@ func main() {
 
 		numberS := ""
 
-		part2Strings := getFirstAndLastFromList(text, append(keys, elements1...))
+		part2Strings := getFirstAndLastFromList(text, elements2)
 
 		numberRegex := regexp.MustCompile(`\d`)
 		
